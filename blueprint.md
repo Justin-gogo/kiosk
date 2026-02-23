@@ -10,6 +10,7 @@ A simple, visually appealing web application that generates and displays random 
 *   **Interactive Button:** A button to trigger the generation of a new set of lottery numbers.
 *   **Modern UI:** A stylish and responsive design with a clean layout, custom fonts, and a pleasant color scheme.
 *   **Number Display:** The generated numbers are displayed in individual, styled containers.
+*   **Dark Mode Support:** Users can toggle between light and dark themes, with their preference saved in local storage.
 *   **Visual Feedback:** The button will have interactive effects, and the numbers will be presented clearly.
 
 ## Plan
@@ -20,19 +21,34 @@ A simple, visually appealing web application that generates and displays random 
     *   Add a title for the application: "Lotto Number Generator".
     *   Create a container to hold the generated numbers.
     *   Add a button with the text "Generate Numbers".
+    *   Add a theme toggle button to switch between light and dark modes.
     *   Link the CSS and JavaScript files.
 
 2.  **Styling (`style.css`):**
+    *   Define CSS variables for colors (background, text, container, buttons) to support theming.
     *   Apply a background color and a subtle texture to the body.
     *   Center the main application container.
     *   Style the title with a modern font and color.
     *   Style the number containers with borders, shadows, and a distinct background color.
     *   Style the "Generate Numbers" button with a gradient, hover effects, and a clear, readable font.
+    *   Implement `[data-theme="dark"]` styles to switch to the dark theme colors.
     *   Ensure the layout is responsive and looks good on different screen sizes.
 
 3.  **JavaScript Logic (`main.js`):**
-    *   Get references to the necessary DOM elements (the number container and the generate button).
+    *   Get references to the necessary DOM elements (the number container, the generate button, and the theme toggle).
     *   Create a function to generate an array of 6 unique random numbers from 1 to 45.
-    *   Create a function to display the generated numbers in the number container. This function will create and append new elements for each number.
+    *   Create a function to display the generated numbers in the number container.
+    *   Implement theme toggle logic:
+        *   Switch between 'light' and 'dark' themes by updating the `data-theme` attribute on the `<html>` element.
+        *   Persist the theme preference in `localStorage`.
+        *   Load and apply the saved theme on page load.
     *   Add a click event listener to the "Generate Numbers" button to call the number generation and display functions.
     *   Generate and display an initial set of numbers when the page loads.
+
+4.  **Deployment Configuration:**
+    *   Configure `firebase.json` for Firebase Hosting.
+    *   Create `.firebaserc` with placeholder project ID.
+    *   Instructions for deployment:
+        *   Run `firebase login` to authenticate.
+        *   Run `firebase use --add` to select your Firebase project.
+        *   Run `firebase deploy` to deploy the application.
